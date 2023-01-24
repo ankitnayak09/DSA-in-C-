@@ -1,13 +1,15 @@
 #include<bits/stdc++.h>
 
 using namespace std;
-
+ 
 bool isStringUnique(string str){
-	sort(str.begin(),str.end());
+	if(str.length() > 128) return false;	
 
-	for (int i = 0; i < str.length()-1; i++)
-	{
-		if(str[i]==str[i+1]) return false;
+	bool char_set[128];
+
+	for(int i=0; i < str.length(); i++){
+		if(char_set[i]==0) return false;
+	char_set[i] = true;
 	}
 	return true;
 }
